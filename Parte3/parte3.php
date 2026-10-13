@@ -1,5 +1,8 @@
 <?php
 $frase = "";
+$intro = "";
+$accion = "";
+$cierre = "";
 
 // Recogemos las opciones seleccionadas por GET si existen
 if (isset($_GET['intro']) && isset($_GET['accion']) && isset($_GET['cierre'])) {
@@ -40,33 +43,33 @@ if (isset($_GET['intro']) && isset($_GET['accion']) && isset($_GET['cierre'])) {
             <div class="campo">
                 <label for="intro">1. Introducción:</label>
                 <select name="intro" id="intro" required>
-                    <option value="Yo en tu lugar,">Yo en tu lugar...</option>
-                    <option value="La verdad es que">La verdad es que...</option>
-                    <option value="Tú sabes que">Tú sabes que...</option>
-                    <option value="No hay duda de que">No hay duda de que...</option>
-                    <option value="Al final,">Al final...</option>
+                    <option value="Yo en tu lugar," <?= ($intro == 'Yo en tu lugar,') ? 'selected' : '' ?>>Yo en tu lugar...</option>
+                    <option value="La verdad es que" <?= ($intro == 'La verdad es que') ? 'selected' : '' ?>>La verdad es que...</option>
+                    <option value="Tú sabes que" <?= ($intro == 'Tú sabes que') ? 'selected' : '' ?>>Tú sabes que...</option>
+                    <option value="No hay duda de que" <?= ($intro == 'No hay duda de que') ? 'selected' : '' ?>>No hay duda de que...</option>
+                    <option value="Al final," <?= ($intro == 'Al final,') ? 'selected' : '' ?>>Al final...</option>
                 </select>
             </div>
 
             <div class="campo">
                 <label for="accion">2. Acción o comentario:</label>
                 <select name="accion" id="accion" required>
-                    <option value="siempre hay que invertir en">siempre hay que invertir en...</option>
-                    <option value="lo importante es">lo importante es...</option>
-                    <option value="nunca subestimes">nunca subestimes...</option>
-                    <option value="yo siempre digo que">yo siempre digo que...</option>
-                    <option value="el secreto está en">el secreto está en...</option>
+                    <option value="siempre hay que invertir en" <?= ($accion == 'siempre hay que invertir en') ? 'selected' : '' ?>>siempre hay que invertir en...</option>
+                    <option value="lo importante es" <?= ($accion == 'lo importante es') ? 'selected' : '' ?>>lo importante es...</option>
+                    <option value="nunca subestimes" <?= ($accion == 'nunca subestimes') ? 'selected' : '' ?>>nunca subestimes...</option>
+                    <option value="yo siempre digo que" <?= ($accion == 'yo siempre digo que') ? 'selected' : '' ?>>yo siempre digo que...</option>
+                    <option value="el secreto está en" <?= ($accion == 'el secreto está en') ? 'selected' : '' ?>>el secreto está en...</option>
                 </select>
             </div>
 
             <div class="campo">
                 <label for="cierre">3. Cierre o consejo:</label>
                 <select name="cierre" id="cierre" required>
-                    <option value="la bolsa de valores.">la bolsa de valores</option>
-                    <option value="el no tener dinero congelado en el banco.">el no tener dinero congelado en el banco</option>
-                    <option value="los chemtrails.">los chemtrails</option>
-                    <option value="la nube.">la nube</option>
-                    <option value="las crypto.">las crypto</option>
+                    <option value="la bolsa de valores." <?= ($cierre == 'la bolsa de valores.') ? 'selected' : '' ?>>la bolsa de valores</option>
+                    <option value="el no tener dinero congelado en el banco." <?= ($cierre == 'el no tener dinero congelado en el banco.') ? 'selected' : '' ?>>el no tener dinero congelado en el banco</option>
+                    <option value="los chemtrails." <?= ($cierre == 'los chemtrails.') ? 'selected' : '' ?>>los chemtrails</option>
+                    <option value="la nube." <?= ($cierre == 'la nube.') ? 'selected' : '' ?>>la nube</option>
+                    <option value="las crypto." <?= ($cierre == 'las crypto.') ? 'selected' : '' ?>>las crypto</option>
                 </select>
             </div>
 

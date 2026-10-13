@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at center, #111a2e 0%, #080d17 100%);
+    color: #e2e8f0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 16px;
+}
+
+.contenedor {
+    background-color: #152033;
+    border: 1px solid #1e3250;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55), 0 0 25px rgba(37, 99, 235, 0.12);
+    padding: 30px 24px;
+    text-align: center;
+    max-width: 440px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 24px;
+    color: #f8fafc;
+    margin: 0 0 20px 0;
+}
+
+/* Mensajes y Resultado */
+.mensaje-predeterminado {
+    background-color: #0b1220;
+    border: 1px dashed #20334f;
+    border-radius: 10px;
+    padding: 16px 14px;
+    margin-bottom: 22px;
+}
+
+.mensaje-predeterminado p {
+    color: #94a3b8;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.resultado-box {
+    background-color: #0b1220;
+    border: 1px solid #1e3a60;
+    border-radius: 12px;
+    padding: 18px 16px;
+    margin-bottom: 22px;
+}
+
+.resultado-etiqueta {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #60a5fa;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.resultado-expresion {
+    font-size: 18px;
+    color: #f1f5f9;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.operador-resaltado {
+    color: #38bdf8;
+    background-color: #162a45;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.flecha {
+    color: #64748b;
+    font-size: 20px;
+}
+
+.resultado-final {
+    padding: 3px 10px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.resultado-verde {
+    color: #4ade80;
+    background-color: rgba(74, 222, 128, 0.12);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.resultado-rojo {
+    color: #f87171;
+    background-color: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.texto-rojo {
+    color: #f87171;
+    font-weight: bold;
+}
+
+/* Campos del formulario */
+.campo {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.campo label {
+    display: block;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.input-texto,
+.select-operador {
+    width: 100%;
+    padding: 11px 12px;
+    background-color: #0b1220;
+    color: #f1f5f9;
+    border: 1px solid #1e3250;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-texto:focus,
+.select-operador:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+.input-texto::placeholder {
+    color: #64748b;
+}
+
+.select-operador {
+    cursor: pointer;
+}
+
+.select-operador option {
+    background-color: #0b1220;
+    color: #f1f5f9;
+}
+
+/* Botones */
+.botones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    border: none;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-calcular {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.btn-calcular:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-reiniciar {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+.btn-reiniciar:hover {
+    background-color: #b91c1c;
+}
