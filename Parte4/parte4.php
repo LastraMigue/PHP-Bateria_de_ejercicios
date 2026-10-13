@@ -47,21 +47,21 @@ if (isset($_GET['intro']) && isset($_GET['accion']) && isset($_GET['cierre'])) {
     $accion = $_GET['accion'];
     $cierre = $_GET['cierre'];
 
-    // Si se eligió "personalizado", usamos el valor del input
+    // Si el campo input no está vacío, usamos el input en lugar del desplegable correspondiente
     $textoIntro = $intro;
-    if ($intro === "personalizado" && isset($_GET['custom_intro']) && trim($_GET['custom_intro']) != "") {
+    if (isset($_GET['custom_intro']) && trim($_GET['custom_intro']) !== "") {
         $customIntro = trim($_GET['custom_intro']);
         $textoIntro = $customIntro;
     }
 
     $textoAccion = $accion;
-    if ($accion === "personalizado" && isset($_GET['custom_accion']) && trim($_GET['custom_accion']) != "") {
+    if (isset($_GET['custom_accion']) && trim($_GET['custom_accion']) !== "") {
         $customAccion = trim($_GET['custom_accion']);
         $textoAccion = $customAccion;
     }
 
     $textoCierre = $cierre;
-    if ($cierre === "personalizado" && isset($_GET['custom_cierre']) && trim($_GET['custom_cierre']) != "") {
+    if (isset($_GET['custom_cierre']) && trim($_GET['custom_cierre']) !== "") {
         $customCierre = trim($_GET['custom_cierre']);
         $textoCierre = $customCierre;
     }
@@ -94,8 +94,7 @@ if (isset($_GET['intro']) && isset($_GET['accion']) && isset($_GET['cierre'])) {
             </div>
         <?php else: ?>
             <div class="mensaje-predeterminado">
-                <p>Elige tus opciones o selecciona "Personalizado" para escribir la tuya. También puedes generar una
-                    aleatoria.</p>
+                <p>Elige tus opciones o escribe una personalizada en los campos de texto. También puedes generar una frase aleatoria.</p>
             </div>
         <?php endif; ?>
 
@@ -104,62 +103,43 @@ if (isset($_GET['intro']) && isset($_GET['accion']) && isset($_GET['cierre'])) {
             <!-- 1. Introducción -->
             <div class="campo">
                 <label for="intro">1. Introducción:</label>
-                <select name="intro" id="intro" onchange="alternarCustom('intro', 'custom_intro')">
-                    <option value="Yo en tu lugar," <?= ($intro == 'Yo en tu lugar,') ? 'selected' : '' ?>>Yo en tu
-                        lugar...</option>
-                    <option value="La verdad es que" <?= ($intro == 'La verdad es que') ? 'selected' : '' ?>>La verdad es
-                        que...</option>
-                    <option value="Tú sabes que" <?= ($intro == 'Tú sabes que') ? 'selected' : '' ?>>Tú sabes que...
-                    </option>
-                    <option value="No hay duda de que" <?= ($intro == 'No hay duda de que') ? 'selected' : '' ?>>No hay
-                        duda de que...</option>
+                <select name="intro" id="intro" required>
+                    <option value="Yo en tu lugar," <?= ($intro == 'Yo en tu lugar,') ? 'selected' : '' ?>>Yo en tu lugar...</option>
+                    <option value="La verdad es que" <?= ($intro == 'La verdad es que') ? 'selected' : '' ?>>La verdad es que...</option>
+                    <option value="Tú sabes que" <?= ($intro == 'Tú sabes que') ? 'selected' : '' ?>>Tú sabes que...</option>
+                    <option value="No hay duda de que" <?= ($intro == 'No hay duda de que') ? 'selected' : '' ?>>No hay duda de que...</option>
                     <option value="Al final," <?= ($intro == 'Al final,') ? 'selected' : '' ?>>Al final...</option>
-                    <option value="personalizado" <?= ($intro == 'personalizado') ? 'selected' : '' ?>>Personalizado
-                    </option>
                 </select>
                 <input type="text" name="custom_intro" id="custom_intro" class="input-custom"
-                    placeholder="Escribe tu propia introducción..." value="<?= htmlspecialchars($customIntro) ?>"
-                    <?= ($intro == 'personalizado') ? '' : 'disabled' ?>>
+                    placeholder="Opción personalizada (opcional)..." value="<?= htmlspecialchars($customIntro) ?>">
             </div>
 
             <!-- 2. Acción o comentario -->
             <div class="campo">
                 <label for="accion">2. Acción o comentario:</label>
-                <select name="accion" id="accion" onchange="alternarCustom('accion', 'custom_accion')">
+                <select name="accion" id="accion" required>
                     <option value="siempre hay que invertir en" <?= ($accion == 'siempre hay que invertir en') ? 'selected' : '' ?>>siempre hay que invertir en...</option>
-                    <option value="lo importante es" <?= ($accion == 'lo importante es') ? 'selected' : '' ?>>lo importante
-                        es...</option>
-                    <option value="nunca subestimes" <?= ($accion == 'nunca subestimes') ? 'selected' : '' ?>>nunca
-                        subestimes...</option>
-                    <option value="yo siempre digo que" <?= ($accion == 'yo siempre digo que') ? 'selected' : '' ?>>yo
-                        siempre digo que...</option>
-                    <option value="el secreto está en" <?= ($accion == 'el secreto está en') ? 'selected' : '' ?>>el
-                        secreto está en...</option>
-                    <option value="personalizado" <?= ($accion == 'personalizado') ? 'selected' : '' ?>>Personalizado
-                    </option>
+                    <option value="lo importante es" <?= ($accion == 'lo importante es') ? 'selected' : '' ?>>lo importante es...</option>
+                    <option value="nunca subestimes" <?= ($accion == 'nunca subestimes') ? 'selected' : '' ?>>nunca subestimes...</option>
+                    <option value="yo siempre digo que" <?= ($accion == 'yo siempre digo que') ? 'selected' : '' ?>>yo siempre digo que...</option>
+                    <option value="el secreto está en" <?= ($accion == 'el secreto está en') ? 'selected' : '' ?>>el secreto está en...</option>
                 </select>
                 <input type="text" name="custom_accion" id="custom_accion" class="input-custom"
-                    placeholder="Escribe tu propia acción..." value="<?= htmlspecialchars($customAccion) ?>"
-                    <?= ($accion == 'personalizado') ? '' : 'disabled' ?>>
+                    placeholder="Opción personalizada (opcional)..." value="<?= htmlspecialchars($customAccion) ?>">
             </div>
 
             <!-- 3. Cierre o consejo -->
             <div class="campo">
                 <label for="cierre">3. Cierre o consejo:</label>
-                <select name="cierre" id="cierre" onchange="alternarCustom('cierre', 'custom_cierre')">
-                    <option value="la bolsa de valores." <?= ($cierre == 'la bolsa de valores.') ? 'selected' : '' ?>>la
-                        bolsa de valores</option>
+                <select name="cierre" id="cierre" required>
+                    <option value="la bolsa de valores." <?= ($cierre == 'la bolsa de valores.') ? 'selected' : '' ?>>la bolsa de valores</option>
                     <option value="el no tener dinero congelado en el banco." <?= ($cierre == 'el no tener dinero congelado en el banco.') ? 'selected' : '' ?>>el no tener dinero congelado en el banco</option>
-                    <option value="los chemtrails." <?= ($cierre == 'los chemtrails.') ? 'selected' : '' ?>>los chemtrails
-                    </option>
+                    <option value="los chemtrails." <?= ($cierre == 'los chemtrails.') ? 'selected' : '' ?>>los chemtrails</option>
                     <option value="la nube." <?= ($cierre == 'la nube.') ? 'selected' : '' ?>>la nube</option>
                     <option value="las crypto." <?= ($cierre == 'las crypto.') ? 'selected' : '' ?>>las crypto</option>
-                    <option value="personalizado" <?= ($cierre == 'personalizado') ? 'selected' : '' ?>>Personalizado
-                    </option>
                 </select>
                 <input type="text" name="custom_cierre" id="custom_cierre" class="input-custom"
-                    placeholder="Escribe tu propio cierre..." value="<?= htmlspecialchars($customCierre) ?>"
-                    <?= ($cierre == 'personalizado') ? '' : 'disabled' ?>>
+                    placeholder="Opción personalizada (opcional)..." value="<?= htmlspecialchars($customCierre) ?>">
             </div>
 
             <!-- Botones de acción -->
@@ -171,20 +151,8 @@ if (isset($_GET['intro']) && isset($_GET['accion']) && isset($_GET['cierre'])) {
         </form>
     </div>
 
-    <script>
-        function alternarCustom(idSelect, idInput) {
-            const select = document.getElementById(idSelect);
-            const input = document.getElementById(idInput);
-            if (select.value === 'personalizado') {
-                input.disabled = false;
-                input.focus();
-            } else {
-                input.disabled = true;
-                input.value = '';
-            }
-        }
-
-        <?php if ($frase != ""): ?>
+    <?php if ($frase != ""): ?>
+        <script>
             // Generamos un sonido de locucion al generar la frase 
             window.addEventListener('DOMContentLoaded', function () {
                 if ('speechSynthesis' in window) {
@@ -195,8 +163,8 @@ if (isset($_GET['intro']) && isset($_GET['accion']) && isset($_GET['cierre'])) {
                     window.speechSynthesis.speak(locucion);
                 }
             });
-        <?php endif; ?>
-    </script>
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>
