@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at center, #111a2e 0%, #080d17 100%);
+    color: #e2e8f0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.pagina {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Tarjetas */
+.card {
+    background-color: #152033;
+    border: 1px solid #1e3250;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55), 0 0 25px rgba(37, 99, 235, 0.12);
+    text-align: center;
+}
+
+.card-principal {
+    max-width: 380px;
+    width: 100%;
+    padding: 28px 24px;
+}
+
+.card-historico {
+    width: 100%;
+    padding: 24px 28px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #f8fafc;
+    margin: 0 0 20px 0;
+}
+
+.card-historico h2 {
+    font-size: 16px;
+    color: #94a3b8;
+    margin: 0 0 18px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.resultado {
+    margin-bottom: 20px;
+}
+
+.dado {
+    width: 125px;
+    height: 125px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    animation: rodarDado 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes rodarDado {
+    0% {
+        transform: rotate(-180deg) scale(0.4);
+        opacity: 0;
+    }
+    70% {
+        transform: rotate(15deg) scale(1.08);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+.resultado p {
+    font-size: 18px;
+    color: #93c5fd;
+    margin: 6px 0 0 0;
+}
+
+.resultado strong {
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.mensaje-predeterminado {
+    background-color: #0b1220;
+    border: 1px dashed #20334f;
+    border-radius: 10px;
+    padding: 24px 16px;
+    margin-bottom: 20px;
+}
+
+.mensaje-predeterminado p {
+    color: #94a3b8;
+    font-size: 15px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    border: none;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-lanzar {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.btn-lanzar:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-reiniciar {
+    background-color: #dc2626;
+    color: #ffffff;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.btn-reiniciar:hover {
+    background-color: #b91c1c;
+    color: #ffffff;
+}
+
+/* Cuadraditos del Histórico */
+.grid-historial {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 4px;
+}
+
+.grid-historial::-webkit-scrollbar {
+    width: 6px;
+}
+
+.grid-historial::-webkit-scrollbar-track {
+    background: #0b1220;
+    border-radius: 4px;
+}
+
+.grid-historial::-webkit-scrollbar-thumb {
+    background: #1e3a60;
+    border-radius: 4px;
+}
+
+.cuadradito-dado {
+    background-color: #0b1220;
+    border: 1px solid #1e2e47;
+    border-radius: 12px;
+    padding: 8px 6px;
+    width: 66px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    transition: transform 0.15s, border-color 0.15s;
+}
+
+.cuadradito-dado:hover {
+    transform: translateY(-2px);
+    border-color: #3b82f6;
+}
+
+.num-tirada {
+    font-size: 10px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.cuadradito-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+}
+
+.num-valor {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+}
