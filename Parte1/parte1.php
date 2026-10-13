@@ -12,9 +12,11 @@ if (isset($_GET['accion'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lanzamiento de dados</title>
+    <link rel="stylesheet" href="../Navbar/navbar.css">
     <link rel="stylesheet" href="parte1.css">
 </head>
 <body>
+    <?php include __DIR__ . '/../Navbar/navbar.php'; ?>
     <div class="contenedor">
         <h1>Lanzamiento de dados</h1>
 

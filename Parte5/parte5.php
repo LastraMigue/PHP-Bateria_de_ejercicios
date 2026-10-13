@@ -70,9 +70,11 @@ if (isset($_GET['valor1']) && isset($_GET['operador']) && isset($_GET['valor2'])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comparator</title>
+    <link rel="stylesheet" href="../Navbar/navbar.css">
     <link rel="stylesheet" href="parte5.css">
 </head>
 <body>
+    <?php include __DIR__ . '/../Navbar/navbar.php'; ?>
     <div class="contenedor">
         <h1>Comparator</h1>
 

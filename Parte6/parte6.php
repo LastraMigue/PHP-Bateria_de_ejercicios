@@ -29,9 +29,11 @@ $fraseResultadoB = implode(" ", $palabrasSinFrio);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parte 6 - Strings</title>
+    <link rel="stylesheet" href="../Navbar/navbar.css">
     <link rel="stylesheet" href="parte6.css">
 </head>
 <body>
+    <?php include __DIR__ . '/../Navbar/navbar.php'; ?>
     <main class="contenedor">
         <h1>Strings "Cachondas"</h1>
 

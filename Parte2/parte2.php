@@ -31,9 +31,11 @@ if (!empty($historialArray)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lanzamiento de dados 2</title>
+    <link rel="stylesheet" href="../Navbar/navbar.css">
     <link rel="stylesheet" href="parte2.css">
 </head>
 <body>
+    <?php include __DIR__ . '/../Navbar/navbar.php'; ?>
     <main class="pagina">
         <!-- Tarjeta principal de lanzamiento -->
         <div class="card card-principal">
