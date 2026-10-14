@@ -21,7 +21,7 @@ A continuación se detallan los enlaces a cada una de las partes que componen la
 
 ### [Parte 1 — Tirada de dado](./Parte1)
 Simula el lanzamiento de un dado de 6 caras.
-* **Lógica**: Genera un número aleatorio del 1 al 6 mediante PHP al enviar la acción por `GET`.
+* **Lógica**: Genera un número aleatorio del 1 al 6 mediante PHP y lo refleja en la URL vía `GET` (`?numero=X`).
 * **Visual**: Muestra la imagen del dado correspondiente junto con su valor numérico y una animación de rotación al rodar.
 * **Acciones**: Incluye botones para lanzar nuevamente o reiniciar el estado inicial.
 

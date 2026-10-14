@@ -1,9 +1,17 @@
 <?php
-$resultado = null;
-
-// Si se pulsa el botón, generamos un número del 1 al 6
+// Si se pulsa el botón de lanzar, generamos el número y redirigimos para que aparezca en la URL
 if (isset($_GET['accion'])) {
-    $resultado = rand(1, 6);
+    $nuevoNumero = rand(1, 6);
+    header("Location: parte1.php?numero=" . $nuevoNumero);
+    exit;
+}
+
+// Obtenemos el número desde la URL si existe
+$resultado = null;
+if (isset($_GET['numero'])) {
+    $resultado = $_GET['numero'];
+} elseif (isset($_GET['resultado'])) {
+    $resultado = $_GET['resultado'];
 }
 ?>
 <!DOCTYPE html>
